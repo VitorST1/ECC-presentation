@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia de Curva Elíptica</title>
+    <style>
+        html {
+            font-size: 1.4rem;
+            text-align: justify;
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #4b0082;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .math {
+            background-color: #e6e6fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        button, a {
+            background-color: #4b0082;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: large;
+        }
+        button:hover, a:hover {
+            background-color: #6a5acd;
+        }
+        #curveImage {
+            border: 1px solid #4b0082;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ECC - Criptografia de Curva Elíptica</h1>
+
+        <p>Olá, criançada! Vocês já imaginaram ter um segredo super especial que só você e seu melhor amigo conhecem? É isso que a criptografia faz! E hoje vamos aprender sobre um tipo muito legal de criptografia chamado "Criptografia de Curva Elíptica".</p>
+        
+        <h2>O que é uma Curva Elíptica?</h2>
+        <p>Imaginem uma montanha-russa muito doida, que sobe, desce e às vezes até dá voltas! Essa é mais ou menos a forma de uma curva elíptica. Na matemática, ela é descrita assim:</p>
+        
+        <div class="math">
+            y² = x³ + ax + b
+        </div>
+        
+        <p>Onde 'a' e 'b' são números que escolhemos para dar forma à nossa curva.</p>
+        
+        <p>Parece complicado, né? Mas não se preocupem! O importante é saber que essa equação cria uma forma especial que usamos para criar nossos segredos.</p>
+
+        <p>Vamos ver como ela se parece:</p>
+
+        <img id="curveImage" src="curva.png" alt="Curva Elíptica">
+        
+        <p>Legal, né? Essa curva é o nosso parquinho secreto para criar códigos super difíceis de decifrar!</p>
+        
+        <h2>Brincando com a curva</h2>
+        <p>Imaginem que cada ponto nessa curva é um esconderijo secreto.</p>
+        
+        <h3>Somando Pontos</h3>
+        <p>Quando "pulamos" na curva, estamos na verdade somando pontos. É como se estivéssemos pulando de um esconderijo para outro. Matematicamente, fazemos assim:</p>
+        
+        <div class="math">
+            (x₃, y₃) = (x₁, y₁) + (x₂, y₂)
+        </div>
+        
+        <p>Na verdade, é como se estivéssemos traçando uma linha entre dois pontos e vendo onde ela cruza nossa curva de novo!</p>
+        
+        <h3>Multiplicando Pontos</h3>
+        <p>Às vezes, queremos dar muitos pulos de uma vez. Isso é como multiplicar um ponto. Fazemos assim:</p>
+        
+        <div class="math">
+            Q = k * P
+        </div>
+        
+        <p>Onde P é nosso ponto inicial, k é quantas vezes queremos pular, e Q é onde acabamos.</p>
+        
+        <h2>O Segredo da Criptografia</h2>
+        <p>O truque mágico é que é muito fácil pular para frente muitas vezes, mas quase impossível adivinhar quantas vezes pulamos só olhando onde paramos!</p>
+        
+        <p>Na matemática, dizemos que é fácil calcular:</p>
+        
+        <div class="math">
+            Q = k * P
+        </div>
+        
+        <p>Mas é muito difícil descobrir k se só conhecemos Q e P. Isso se chama "problema do logaritmo discreto" - um nome chique para dizer que é um quebra-cabeça super difícil!</p>
+        
+        <h2>Criando Chaves Secretas</h2>
+        <p>Com nossa curva mágica, podemos criar chaves secretas para trocar mensagens seguras. Funciona assim:</p>
+        
+        <ol>
+            <li>Escolhemos um ponto P na curva que todos conhecem.</li>
+            <li>Alice escolhe um número secreto a e calcula A = a * P</li>
+            <li>Bob escolhe um número secreto b e calcula B = b * P</li>
+            <li>Alice e Bob trocam A e B</li>
+            <li>Alice calcula S = a * B e Bob calcula S = b * A</li>
+            <li>Mágica! S é igual para os dois e ninguém mais pode descobrir!</li>
+        </ol>
+        
+        <p>Matematicamente, isso funciona porque:</p>
+        
+        <div class="math">
+            S = a * (b * P) = b * (a * P)
+        </div>
+
+        <h2>Por que isso é incrível?</h2>
+        <p>Essa "montanha-russa matemática" nos ajuda a criar senhas super fortes para proteger nossos segredos na internet. É tão forte que nem os computadores mais poderosos do mundo conseguem adivinhar nosso segredo!</p>
+        
+        <p>E o mais legal? Podemos usar isso para enviar mensagens secretas, fazer compras seguras na internet e muito mais!</p>
+        
+        <h2>Conclusão</h2>
+        <p>A criptografia de curva elíptica é como uma língua secreta super avançada que usamos para proteger nossas informações. Ela usa matemática complexa, mas no final, é como brincar de esconde-esconde com números!</p>
+
+        <a href="formulas.html">Visualizar Fórmulas</a>
+    </div>
+</body>
+</html>

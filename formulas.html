@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia de Curva Elíptica</title>
+    <style>
+        html {
+            font-size: 1.4rem;
+            text-align: justify;
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #4b0082;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .math {
+            background-color: #e6e6fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        button, a {
+            background-color: #4b0082;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: large;
+        }
+        button:hover, a:hover {
+            background-color: #6a5acd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fórmulas Matemáticas da ECC</h2>
+        <p>Vamos conhecer as fórmulas mágicas que fazem a curva elíptica funcionar!</p>
+        
+        <div class="math">
+            1. Equação da Curva Elíptica<br>
+            y² = x³ + ax + b<br>
+        </div>
+        <p>Esta é a receita básica para desenhar nossa curva. Os números 'a' e 'b' são como ingredientes que mudam o formato da curva!</p>
+        
+        <div class="math">
+            2. Adição de Pontos (P ≠ Q)<br>
+            m = (y₂ - y₁)/(x₂ - x₁)<br>
+            x₃ = m² - x₁ - x₂<br>
+            y₃ = m(x₁ - x₃) - y₁
+        </div>
+        <p>Quando pulamos entre dois pontos diferentes, usamos essa fórmula para encontrar o próximo esconderijo!</p>
+        
+        <div class="math">
+            3. Adição de Pontos (P = Q)<br>
+            m = (3x₁² + a)/(2y₁)<br>
+            x₃ = m² - 2x₁<br>
+            y₃ = m(x₁ - x₃) - y₁
+        </div>
+        <p>Quando queremos dar um pulo duplo no mesmo ponto, usamos essa versão turbo da fórmula!</p>
+        
+        <div class="math">
+            4. Multiplicação Escalar<br>
+            Q = k × P<br>
+            <small>(P + P + ... + P) k vezes</small>
+        </div>
+        <p>É como dar muitos pulinhos rápidos na curva. Fácil de fazer, mas difícil de desfazer!</p>
+        
+        <div class="math">
+            5. Problema do Logaritmo Discreto<br>
+            Dado Q e P, encontrar k tal que Q = k × P
+        </div>
+        <p>Essa é a "fechadura mágica" da ECC. Todos sabem onde você chegou (Q), mas ninguém consegue adivinhar quantos pulos (k) você deu!</p>
+        
+        <div class="math">
+            6. Troca de Chaves Diffie-Hellman<br>
+            Alice: A = a × P<br>
+            Bob: B = b × P<br>
+            Segredo: S = a × B = b × A = ab × P
+        </div>
+        <p>Assim criamos um segredo compartilhado sem nunca revelar nossos números secretos 'a' e 'b'!</p>
+
+        <h2>Gerando uma Chave AES a partir de S</h2>
+        <p>Agora que temos nosso ponto mágico <b>S</b>, vamos transformá-lo em uma chave AES.</p>
+        <p>Uma chave AES precisa de um tamanho fixo de bytes.</p>
+        <p>S pode não conter o tamanho necessário, então vamos fazer o seguinte:</p>
+        
+        <div class="math">
+            1. Pegamos a coordenada x do ponto S<br>
+        </div>
+
+        <div class="math">
+            2. Aplicamos uma função de hash (SHA-256, por exemplo)<br>
+            K = hash(x)
+        </div>
+
+        <div class="math">
+            3. Ajustamos para o tamanho da chave AES<br>
+            AES-128 → Usamos os primeiros 16 bytes de K<br>
+            AES-192 → Usamos os primeiros 24 bytes de K<br>
+            AES-256 → Usamos os primeiros 32 bytes de K
+        </div>
+        
+        <p>Agora temos uma chave secreta AES gerada magicamente a partir da curva elíptica! Podemos usá-la para cifrar nossas mensagens de forma super segura!</p>
+
+        <a href="index.html">Início</a>
+    </div>
+</body>
+</html>
