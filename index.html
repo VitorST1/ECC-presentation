@@ -21,7 +21,7 @@
             text-align: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             background-color: white;
             padding: 20px;
@@ -53,7 +53,36 @@
             border: 1px solid #4b0082;
             width: 100%;
         }
+         .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75em;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #e6e6fa;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #4b0082;
+        }
+        .card h3 {
+            color: #4b0082;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -132,7 +161,55 @@
         <p>Essa "montanha-russa matemática" nos ajuda a criar senhas super fortes para proteger nossos segredos na internet. É tão forte que nem os computadores mais poderosos do mundo conseguem adivinhar nosso segredo!</p>
         
         <p>E o mais legal? Podemos usar isso para enviar mensagens secretas, fazer compras seguras na internet e muito mais!</p>
-        
+
+        <h2>Vantagens e Desvantagens da ECC</h2>
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Vantagem: Menor Tamanho de Chave</h3>
+                <p>A ECC oferece o mesmo nível de segurança com chaves muito menores em comparação com outros métodos, como RSA. Por exemplo, uma chave ECC de 256 bits é tão segura quanto uma chave RSA de 3072 bits.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Vantagem: Eficiência Computacional</h3>
+                <p>Por usar chaves menores, a ECC consome menos recursos computacionais, tornando-a ideal para dispositivos móveis e IoT (Internet das Coisas).</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Desvantagem: Complexidade Matemática</h3>
+                <p>A matemática por trás da ECC é mais complexa do que outros métodos, o que pode dificultar sua implementação correta.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Desvantagem: Vulnerabilidade a Ataques Quânticos</h3>
+                <p>Embora seja resistente a ataques clássicos, a ECC pode ser vulnerável a computadores quânticos no futuro.</p>
+            </div>
+        </div>
+
+        <h2>Por Que ECC é o Futuro da Criptografia?</h2>
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Segurança Forte</h3>
+                <p>A ECC oferece segurança robusta com chaves pequenas, tornando-a eficiente e confiável para proteger dados sensíveis.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Ideal para Dispositivos Móveis</h3>
+                <p>Com o aumento do uso de smartphones e dispositivos IoT, a ECC é perfeita para essas plataformas devido à sua eficiência energética e baixo consumo de recursos.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-globe"></i>
+                <h3>Adoção Global</h3>
+                <p>A ECC já é amplamente usada em protocolos modernos, como TLS, Bitcoin e outras criptomoedas, consolidando-se como padrão global.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-rocket"></i>
+                <h3>Poderosa Escalabilidade</h3>
+                <p>Enquanto outros métodos de criptografia enfrentam desafios de escalabilidade, a ECC continua sendo uma solução viável para os próximos anos.</p>
+            </div>
+        </div>
+
         <h2>Conclusão</h2>
         <p>A criptografia de curva elíptica é como uma língua secreta super avançada que usamos para proteger nossas informações. Ela usa matemática complexa, mas no final, é como brincar de esconde-esconde com números!</p>
 
